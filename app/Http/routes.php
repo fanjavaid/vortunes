@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'frontend.home', 'uses' => 'Frontend\HomeController@index']);
+Route::get('/tentang-kami', ['as' => 'frontend.tentang-kami', 'uses' => 'Frontend\PageController@aboutUs']);
+// Route::get('/blog', ['as' => 'frontend.blog', 'uses' => 'Frontend\PageController@blog']);
+Route::get('/hubungi-kami', ['as' => 'frontend.hubungi-kami', 'uses' => 'Frontend\PageController@contactUs']);
+Route::get('/simulasi-kredit', ['as' => 'frontend.simulasi-kredit', 'uses' => 'Frontend\PageController@creditCalculation']);
+
+Route::resource('response', 'ResponseController');
